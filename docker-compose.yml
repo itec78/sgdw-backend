@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  api:
+    build:
+      context: ./src
+      dockerfile: Dockerfiles
+    ports:
+      - 8000:8000
+    environment:
+      LANG: "it"
+    volumes:
+      - SDOW_DATA_PATH:/usr/src/data/

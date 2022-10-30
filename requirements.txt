@@ -1,0 +1,8 @@
+flask
+flask-compress
+flask-cors
+litecli
+gunicorn
+protobuf
+supervisor
+requests
