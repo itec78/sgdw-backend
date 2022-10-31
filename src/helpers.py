@@ -2,12 +2,13 @@
 Helper classes and methods.
 """
 
+import os
 import logging
 import requests
 
-
-WIKIPEDIA_API_URL = 'https://it.wikipedia.org/w/api.php'
-
+LANG = os.getenv("LANG")
+WIKIPEDIA_URL = f'https://${LANG}.wikipedia.org'
+WIKIPEDIA_API_URL = f'${WIKIPEDIA_URL}/w/api.php'
 
 def fetch_wikipedia_pages_info(page_ids, database):
   """Fetched page information such as title, URL, and image thumbnail URL for the provided page IDs.
@@ -45,7 +46,7 @@ def fetch_wikipedia_pages_info(page_ids, database):
     # Identify this client as per Wikipedia API guidelines.
     # https://www.mediawiki.org/wiki/API:Main_page#Identifying_your_client
     headers = {
-        'User-Agent': 'Six Degrees of Wikipedia/1.0 (https://www.sixdegreesofwikipedia.com/; wenger.jacob@gmail.com)',
+        'User-Agent': 'Sei Gradi Di Separazione/1.0 (https://seigradidiwikipedia.it/; info@seigradidiwikipedia.it)',
     }
 
     req = requests.get(WIKIPEDIA_API_URL, params=query_params, headers=headers)
@@ -70,7 +71,7 @@ def fetch_wikipedia_pages_info(page_ids, database):
         page_title = database.fetch_page_title(page_id)
         pages_info[page_id] = {
             'title': page_title,
-            'url': 'https://en.wikipedia.org/wiki/{0}'.format(page_title)
+            'url': f'${WIKIPEDIA_URL}/wiki/{page_title}'
         }
       else:
         pages_info[page_id] = {
