@@ -8,7 +8,7 @@ import requests
 
 LANG = os.environ.get("LANG", "it").lower()
 WIKIPEDIA_URL = f'https://{LANG}.wikipedia.org'
-WIKIPEDIA_API_URL = f'{WIKIPEDIA_URL}/w/api.php'
+WIKIPEDIA_API_URL = '{0}/w/api.php'.format(WIKIPEDIA_URL)
 
 def fetch_wikipedia_pages_info(page_ids, database):
   """Fetched page information such as title, URL, and image thumbnail URL for the provided page IDs.
