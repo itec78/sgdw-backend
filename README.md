@@ -9,6 +9,12 @@ docker compose up -d
 
 #### Configurations
 
+#### Create and .env file
+
+| ENV | VALUE | default |
+| --- | --- | --- | 
+| LANG | Language Code ISO_639 | it |
+
 ##### Path
 Applications expects a data folder on `/usr/src/data/` like this:
 ```
@@ -16,8 +22,3 @@ data/
 ├── sdow.sqlite
 └── searches.sqlite
 ```
-##### Environment Variables
-
-| ENV | VALUE | default |
-| --- | --- | --- | 
-| LANG | Language Code ISO_639 | it |
