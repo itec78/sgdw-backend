@@ -13,7 +13,7 @@ docker compose up -d
 
 | ENV | VALUE | default |
 | --- | --- | --- | 
-| LANG | Language Code ISO_639 | it |
+| WIKI_LANG | Language Code ISO_639 | it |
 
 ##### Path
 Applications expects a data folder on `/usr/src/data/` like this:
