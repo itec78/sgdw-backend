@@ -2,9 +2,9 @@ FROM python:3
 
 WORKDIR /usr/src/api
 
-COPY gunicorn.conf.py .
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+COPY gunicorn.conf.py .
 
 COPY src/ .
 
