@@ -5,7 +5,5 @@ services:
     build: .
     ports:
       - 8000:8000
-    environment:
-      LANG: "it"
     volumes:
       - ${SDOW_DATA_PATH}:/usr/src/data/
