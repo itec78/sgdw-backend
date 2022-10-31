@@ -7,8 +7,8 @@ import logging
 import requests
 
 LANG = os.getenv("LANG")
-WIKIPEDIA_URL = f'https://${LANG}.wikipedia.org'
-WIKIPEDIA_API_URL = f'${WIKIPEDIA_URL}/w/api.php'
+WIKIPEDIA_URL = f'https://{LANG}.wikipedia.org'
+WIKIPEDIA_API_URL = f'{WIKIPEDIA_URL}/w/api.php'
 
 def fetch_wikipedia_pages_info(page_ids, database):
   """Fetched page information such as title, URL, and image thumbnail URL for the provided page IDs.
@@ -71,7 +71,7 @@ def fetch_wikipedia_pages_info(page_ids, database):
         page_title = database.fetch_page_title(page_id)
         pages_info[page_id] = {
             'title': page_title,
-            'url': f'${WIKIPEDIA_URL}/wiki/{page_title}'
+            'url': f'{WIKIPEDIA_URL}/wiki/{page_title}'
         }
       else:
         pages_info[page_id] = {
