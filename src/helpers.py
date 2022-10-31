@@ -6,7 +6,7 @@ import os
 import logging
 import requests
 
-LANG = os.getenv("LANG")
+LANG = os.environ.get("LANG", "it").lower()
 WIKIPEDIA_URL = f'https://{LANG}.wikipedia.org'
 WIKIPEDIA_API_URL = f'{WIKIPEDIA_URL}/w/api.php'
 
