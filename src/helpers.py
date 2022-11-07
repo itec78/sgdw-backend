@@ -111,7 +111,7 @@ def get_sanitized_page_title(page_title):
   """
   validate_page_title(page_title)
 
-  return page_title.strip().replace(' ', '_').replace("'", "\\'").replace('"', '\\"')
+  return "_".join(page_title.strip().replace('_', ' ').replace("'", "\\'").replace('"', '\\"').split())
 
 
 def get_readable_page_title(sanitized_page_title):
@@ -129,7 +129,7 @@ def get_readable_page_title(sanitized_page_title):
     "3.5\"_Floppy_disk"           => "3.5" Floppy disk"
     "Nip\\Tuck"                   => "Nip/Tuck"
   """
-  return sanitized_page_title.strip().replace('_', ' ').replace("\\'", "'").replace('\\"', '"')
+  return " ".join(sanitized_page_title.strip().replace('_', ' ').replace("\\'", "'").replace('\\"', '"').split())
 
 
 def is_str(val):
@@ -142,7 +142,7 @@ def is_str(val):
     bool: Whether or not the provided value is a string type.
   """
   try:
-    return isinstance(val, basestring)
+    return isinstance(val, str)
   except NameError:
     return isinstance(val, str)
 
